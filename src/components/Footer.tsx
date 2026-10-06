@@ -3,6 +3,9 @@
 import Link from "next/link"
 import { Facebook, Instagram, Phone, Mail, MapPin, ArrowUp } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import { Orbitron } from "next/font/google"
+
+const orbitron = Orbitron({ subsets: ["latin"], weight: ["700"] })
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false)
@@ -29,7 +32,7 @@ export default function Footer() {
   }
 
   return (
-    <footer ref={footerRef} className="bg-[rgb(0,24,40)] text-[rgb(251,251,251)] py-16 relative overflow-hidden">
+    <footer ref={footerRef} className="bg-[rgb(0,24,40)] text-[rgb(251,251,251)] pt-16 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[rgb(0,192,241)]/10 via-transparent to-[rgb(0,192,241)]/5"></div>
@@ -150,7 +153,7 @@ export default function Footer() {
           }`}
         >
           <div className="flex flex-col md:flex-row justify-between items-center text-[rgb(196,203,205)] text-sm">
-            <p>© 2025 Dan MOT & Services LTD. All Rights Reserved.</p>
+            <p>© 2026 Dan MOT & Services LTD. All Rights Reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="#" className="hover:text-[rgb(0,192,241)] transition-colors duration-300">
                 Privacy Policy
@@ -169,6 +172,39 @@ export default function Footer() {
         >
           <ArrowUp className="w-6 h-6" />
         </button>
+      </div>
+
+      {/* Powered by NallGeeks */}
+      <div className="relative z-10 mt-12 h-12 w-full">
+        <svg
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 100 48"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d="M0,48 L0,42 Q50,-42 100,42 L100,48 Z" fill="rgb(0,192,241)" fillOpacity="0.12" />
+          <path
+            d="M0,42 Q50,-42 100,42"
+            fill="none"
+            stroke="rgb(0,192,241)"
+            strokeOpacity="0.5"
+            strokeWidth="1"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+        <a
+          href="https://nallgeeks.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative flex h-full items-end justify-center gap-1 pb-4 text-[15px] leading-none text-[rgb(196,203,205)] animate-float-subtle"
+        >
+          Powered by
+          <span
+            className={`${orbitron.className} text-[rgb(0,192,241)] tracking-wider drop-shadow-[0_0_6px_rgba(0,192,241,0.7)] hover:text-[rgb(0,170,220)] transition-colors duration-300`}
+          >
+            NallGeeks
+          </span>
+        </a>
       </div>
     </footer>
   )
